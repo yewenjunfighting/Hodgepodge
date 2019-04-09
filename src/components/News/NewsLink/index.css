@@ -1,0 +1,13 @@
+li {
+    list-style-type: none;
+    padding: 5px 10px;
+}
+
+.newsLink a{
+   color: #081626;
+}
+
+.newsLink :hover {
+    color: #ef7474;
+}
+

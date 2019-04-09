@@ -1,0 +1,43 @@
+{
+  "name": "picture-waterfall-stream",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {
+    "antd": "^3.15.0",
+    "axios": "^0.18.0",
+    "babel-plugin-import": "^1.11.0",
+    "customize-cra": "^0.2.12",
+    "element-react": "^1.4.26",
+    "imagesloaded": "^4.1.4",
+    "immutable": "^4.0.0-rc.12",
+    "jquery": "^3.3.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "masonry-layout": "^4.2.2",
+    "react": "^16.7.0",
+    "react-app-rewired": "^2.1.1",
+    "react-document-title": "^2.0.3",
+    "react-dom": "^16.7.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.3",
+    "redux": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "author": "yewenjunfighting",
+  "email": "1728914873@qq.com"
+}

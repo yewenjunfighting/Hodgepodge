@@ -1,0 +1,11 @@
+.picDiv {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.picDetail {
+    width: 50%;
+    height: 50%;
+}

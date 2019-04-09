@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#block{
+    background-image: url(../../../assets/草.jpg);
+}
+
+.top{
+    width :1230px;
+    margin:50px auto;
+}
+
+.container{
+    width:1230px;
+    height:1000px;
+    margin:100px auto;
+}
+
+
+.chessman{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/掩盖的草.jpg);
+}
+
+.lei{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/瓢虫.jpg);
+}
+
+input{
+    border:0px;
+    width:30px;
+    color:white;
+    font-size:25px;
+    font-weight:bolder;
+    margin-bottom:20px;
+    background-image:url(../../../assets/草.jpg);
+}
+
+img{
+    margin-top:30px;
+}
+
+.ling{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/空地.jpg);
+}
+
+.one{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/1.jpg);
+}
+
+.tow{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/2.jpg);
+}
+
+.three{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/3.jpg);
+}
+
+.four{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/4.jpg);
+}
+.five{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/5.jpg);
+}
+
+.six{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/6.jpg);
+}
+
+.seven{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/7.jpg);
+}
+
+.eight{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/8.jpg);
+}
+
+.banner{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/插旗.jpg);
+}
+
+.unknow{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/问号.jpg);
+}
+
+.win{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/win.jpg);
+}
+
+.secret{
+    width:41px;
+    height:41px;
+    float:left;
+    list-style:none;
+    background-image:url(../../../assets/掩盖的草.jpg);
+}
