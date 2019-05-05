@@ -16,32 +16,35 @@ class Pics extends Component {
         super(props);
         this.state = {
             pics: [],
-        }
-        this.deletePic = this.deletePic.bind(this)
+        };
+        this.deletePic = this.deletePic.bind(this);
         this.scrollReq = this.scrollReq.bind(this)
     }
 
     scrollReq(){
-        const html = document.querySelector('html')
-        let scrollTop = html.scrollTop
-        const clientHeight = html.clientHeight
-        let scrollHeight = html.scrollHeight
+        const html = document.querySelector('html');
+        let scrollTop = html.scrollTop;
+        const clientHeight = html.clientHeight;
+        let scrollHeight = html.scrollHeight;
+        // 用节流来防止scrollGet函数被频繁的触发
         if(scrollHeight === clientHeight + scrollTop) {
-            setTimeout(scrollGet.bind(this, html), 100)
+            if(!window.timer){
+                window.timer = setTimeout(scrollGet.bind(this, html), 1000);
+            }
         }
     }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.scrollReq, false)
+        window.addEventListener('scroll', this.scrollReq, false);
         // 输出初始的store
-        console.log(store.getState())
+        console.log(store.getState());
         getPic().then(req => {
-            const urls =  getPicUrl(req)
-            console.log(urls)
+            const urls =  getPicUrl(req);
+            console.log(urls);
             // 创建reducer
-            store.dispatch(addPirUrl(urls))
+            store.dispatch(addPirUrl(urls));
             // 输出dispatch后的store
-            console.log(store.getState())
+            console.log(store.getState());
             this.setState({
                 pics: store.getState().pitUrl
             })
@@ -55,17 +58,17 @@ class Pics extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.scrollReq)
+        window.removeEventListener('scroll', this.scrollReq);
         // 重置请求位
         setIndex()
     }
 
     deletePic(url) {
-        let index = this.state.pics.indexOf(url)
+        let index = this.state.pics.indexOf(url);
         if(index !== -1) {
             this.setState((state) => {
-                state.pics.splice(index, 1)
-                console.log(state.pics)
+                state.pics.splice(index, 1);
+                console.log(state.pics);
                 return {
                     pics: state.pics
                 }

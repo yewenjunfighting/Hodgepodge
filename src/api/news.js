@@ -83,9 +83,9 @@ export function getPic() {
 }
 
 export function changeLanImgSize() {
-    let lan = document.querySelector('#lan')
+    // let lan = document.querySelector('#lan')
     // let lanImg = document.querySelector('.lanImg')
     // lan.style.width = lanImg.offsetWidth + 'px'
     // lan.style.height = lanImg.offsetHeight + 'px'
-    console.log(lan.offsetWidth, lan.offsetHeight)
+    // console.log(lan.offsetWidth, lan.offsetHeight)
 }
