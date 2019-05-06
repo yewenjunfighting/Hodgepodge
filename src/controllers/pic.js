@@ -3,6 +3,7 @@ import {Message} from "element-react";
 import {store} from '../redux/index';
 import {addPirUrl} from "../redux/actions";
 
+let flag = 0;
 export function getPicUrl (req) {
     let res =  req.results;
     let urls = [];
@@ -16,15 +17,20 @@ export function getPicUrl (req) {
     return urls
 }
 
+// 滑动请求的逻辑
 export function scrollGet(html) {
     console.log('再次请求');
     getPic().then(req => {
-        console.log('一秒钟请求');
         clearTimeout(window.timer);
         window.timer = void 0;
         const urls= getPicUrl(req);
         let pics = this.state.pics.map((item)=>{return item});
         pics = [...pics, ...urls];
+        if(pics.length > 20) {
+            let part = pics.splice(0, urls.length);
+            let key = ++ flag + '';
+            window.sessionStorage.setItem(key, JSON.stringify(part));
+        }
         store.dispatch(addPirUrl(pics));
         this.setState({
             pics: store.getState().pitUrl
@@ -36,4 +42,15 @@ export function scrollGet(html) {
             duration: 3 * 1000
         })
     })
+}
+
+export function rollBack() {
+    if(flag) {
+        let part = window.sessionStorage.getItem(flag + '');
+        let pics = this.state.pics.map((item)=> item);
+        pics = [...JSON.parse(part), ...pics];
+        this.setState({
+            pics
+        })
+    }
 }

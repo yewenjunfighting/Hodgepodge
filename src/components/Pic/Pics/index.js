@@ -32,9 +32,33 @@ class Pics extends Component {
                 window.timer = setTimeout(scrollGet.bind(this, html), 1000);
             }
         }
+        // 当scrollTop为0时, 要把sessionStorage存储的picture url加入到pics中
+
     }
 
     componentDidMount() {
+        window.addEventListener('resize', (function(){
+                let timeStamp = 0;
+                let timer = void 0;
+                let run = (wait)=>{
+                    timer = setTimeout(()=>{
+                        let time = new Date().getTime();
+                        if(time - timeStamp < wait) {
+                            timeStamp = time;
+                            run(wait)
+                        }else {
+                            console.log('执行');
+                            timer = void 0;
+                        }
+                    }, wait);
+                };
+                return function() {
+                    timeStamp = new Date().getTime();
+                    if(!timer) {
+                        run(1000);
+                    }
+                }
+        }()), false);
         window.addEventListener('scroll', this.scrollReq, false);
         // 输出初始的store
         console.log(store.getState());
@@ -59,8 +83,11 @@ class Pics extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.scrollReq);
+        delete window.a;
         // 重置请求位
-        setIndex()
+        setIndex();
+        // 删除存储的picture url
+        window.sessionStorage.clear();
     }
 
     deletePic(url) {

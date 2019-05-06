@@ -34,15 +34,6 @@ class MineClearance extends Component {
                 ele.removeEventListener(type, handler, false);
             }else ele.detachEvent('on' + type, handler);
         }
-        function getStyle(ele, prop){
-            //如果window.getComputedStyle方法存在的话
-            if(window.getComputedStyle){
-                return window.getComputedStyle(ele, null)[prop];
-            }else {
-                //为了兼容IE
-                return ele.currentStyle[prop];
-            }
-        }
         //封装一个取消默认事件的函数,event为事件对象
         function cancelHandler(event){
             if(event.preventDefault){
