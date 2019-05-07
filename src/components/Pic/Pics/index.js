@@ -4,7 +4,7 @@ import ErrorBoundary from '../../ErrorBoundary/index'
 
 import './index.css'
 import { getPic, setIndex } from '../../../api/pic.js'
-import { getPicUrl, scrollGet} from "../../../controllers/pic";
+import { getPicUrl, scrollGet, rollBack} from "../../../controllers/pic";
 import { HomePage } from '../../PageTitle/index.js'
 import { store } from '../../../redux/index'
 import { addPirUrl } from '../../../redux/actions'
@@ -31,9 +31,8 @@ class Pics extends Component {
             if(!window.timer){
                 window.timer = setTimeout(scrollGet.bind(this, html), 1000);
             }
-        }
-        // 当scrollTop为0时, 要把sessionStorage存储的picture url加入到pics中
-
+            // 当scrollTop为0时, 要把sessionStorage存储的picture url加入到pics中
+        }else if(scrollTop === 0) rollBack.call(this)
     }
 
     componentDidMount() {

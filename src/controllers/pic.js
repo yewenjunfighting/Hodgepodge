@@ -47,10 +47,12 @@ export function scrollGet(html) {
 export function rollBack() {
     if(flag) {
         let part = window.sessionStorage.getItem(flag + '');
+        window.sessionStorage.removeItem(flag + '');
         let pics = this.state.pics.map((item)=> item);
         pics = [...JSON.parse(part), ...pics];
         this.setState({
             pics
-        })
+        });
+        flag --;
     }
 }

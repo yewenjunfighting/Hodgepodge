@@ -29,7 +29,7 @@ class PicItem extends Component{
 
         imgLoad.on('progress', (instance, image) =>{
             if(!image.isLoaded){
-                this.props.deletePic(image.img.currentSrc)
+                // this.props.deletePic(image.img.currentSrc)
             }
         })
     }
