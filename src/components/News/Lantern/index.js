@@ -24,7 +24,9 @@ class Lantern extends Component {
 
     render() {
         return (
-            <div id="lan"><img className="lanImg"src="https://api.dujin.org/pic/" alt="动漫"/></div>
+            <div id="lan">
+                <img className="lanImg"src="https://api.dujin.org/pic/" alt="动漫"/>
+            </div>
         )
     }
 }

@@ -1,7 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, Children } from 'react'
 
 import './index.css'
 class NewsLink extends Component {
+    componentDidMount() {
+        console.log([1,2,3].map(val=>[val]))
+        let res = Children.map([1, 2, 3], (val)=>[val])
+        console.log(res)
+    }
     render() {
         return (
             <ul>

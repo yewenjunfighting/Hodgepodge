@@ -18,7 +18,6 @@ class HomeLayout extends Component {
             main: 'I name is WenJun Ye'
         }
     }
-
     selected = (event) => {
         switch(event.key) {
             case '1': this.setState({

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import Lantern from '../Lantern'
 import { getNews } from '../../../api/news'
 import NewsLink from '../NewsLink'
@@ -58,7 +58,7 @@ class NewsHomeLayout extends Component {
                     <Lantern  imgs={imgUrls}/>
                 </div>
                 <div id="newTitle">
-                    <NewsLink link={link.slice(0, 10)} title={title.slice(0, 10)} />
+                    <NewsLink link={link.slice(0, 10)} title={title.slice(0, 10)}/>
                     <NewsLink link={link.slice(10, 20)} title={title.slice(10, 20)}/>
                 </div>
             </div>
