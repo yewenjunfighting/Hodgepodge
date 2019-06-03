@@ -3,6 +3,7 @@ import { Layout, Menu, Icon } from 'antd';
 import Pics from '../Pic/Pics'
 import NewsHomeLayout from '../News/NewsHomeLayout'
 import MineClearance from '../Game/MineClearance'
+import ResumeGenerator from '../ResumeGenerator'
 
 import './index.css'
 
@@ -15,13 +16,13 @@ class HomeLayout extends Component {
         super(props)
         this.state = {
             collapsed: false,
-            main: 'I name is WenJun Ye'
+            main: <ResumeGenerator />
         }
     }
     selected = (event) => {
         switch(event.key) {
             case '1': this.setState({
-                main: 'My name is WenJun Ye',
+                main: <ResumeGenerator />,
             }) ; break;
             case '2': this.setState({
                 main: <NewsHomeLayout />,
