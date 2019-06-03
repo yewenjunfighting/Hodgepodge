@@ -5,7 +5,13 @@ import './index.css'
 class ResumeGenerator extends Component {
     render() {
         return (
-            <div>动态生成简历</div>
+            <div className="resume">
+                <form action="#">
+                    <p className="form-item avatar">
+                        <input type="file" className="chooseImage"/>
+                    </p>
+                </form>
+            </div>
         )
     }
 }
