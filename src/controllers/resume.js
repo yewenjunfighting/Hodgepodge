@@ -6,13 +6,21 @@ export function chooseFile(event) {
     // 如果用户选取的时图片的话
     console.log(file.type)
     if(file.type.indexOf('image') === 0) {
-        let reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = function() {
-            // newUrl可以作为图片的url
-            let newUrl = this.result;
-            changeUrl(newUrl)
-        }
+       //let reader = new FileReader()
+       //reader.readAsDataURL(file)
+       // reader.onload = function() {
+       //      // newUrl可以作为图片的url
+       //     console.log(reader.result)
+       //     let blob = new Blob([reader.result], {type: reader.type})
+       //     console.log(URL.createObjectURL(blob))
+       //  }
+        // let formData = new FormData()
+        // formData.append('avatar', file)
+        // console.log(file, formData)
+        let url = URL.createObjectURL(file)
+        console.log(url)
+        changeUrl(url)
+
     }else {
         // 如果用户没有选择图片
         // Message({
@@ -26,7 +34,9 @@ export function chooseFile(event) {
 }
 
 function changeUrl(newUrl) {
+
     let avatar = document.querySelector('.avatar')
     avatar.style.backgroundImage = 'url(' + newUrl +  ')'
     console.log(avatar)
 }
+
