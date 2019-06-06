@@ -1,4 +1,5 @@
 import { Message } from 'element-react'
+import default_avatar from '../assets/default_avatar.jpg'
 
 export function chooseFile(event) {
     // 获取用户所选文件
@@ -20,23 +21,44 @@ export function chooseFile(event) {
         let url = URL.createObjectURL(file)
         console.log(url)
         changeUrl(url)
-
+        // 存储头像信息
+        window.localStorage.setItem('avatar', url)
     }else {
         // 如果用户没有选择图片
-        // Message({
-        //     message: '请选择图片',
-        //     type: 'error',
-        //     duration: 3 * 1000
-        // })
+        Message({
+            message: '请选择图片',
+            type: 'error',
+            duration: 3 * 1000
+        })
         console.log('没有选择图片')
         alert('请选择图片')
     }
 }
 
 function changeUrl(newUrl) {
-
+    // 实际开发中, 我们会把用户选择的头像数据传给后端, 后端会返回一个新的url
+    // 前端设置input type=file的父级元素的背景为新的url，达到头像上传的目的
+    // 如果图片加载失败, 就启用默认的背景图片
+    let img = new Image()
+    img.src = newUrl
     let avatar = document.querySelector('.avatar')
-    avatar.style.backgroundImage = 'url(' + newUrl +  ')'
-    console.log(avatar)
+    // 加载成功
+    img.addEventListener('load', ()=>{
+        console.log('success load')
+        avatar.style.backgroundImage = `url(${newUrl})`
+        img = null
+    })
+    // 加载失败
+    img.addEventListener('error', ()=>{
+        console.log('failed load')
+        avatar.style.backgroundImage = `url(${default_avatar})`
+        img = null
+    })
 }
 
+export function haveAvatar() {
+    let imgUrl = window.localStorage.getItem('avatar')
+    if(imgUrl) {
+        changeUrl(imgUrl)
+    }
+}

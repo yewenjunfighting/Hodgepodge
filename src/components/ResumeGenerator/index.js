@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-import { chooseFile } from '../../controllers/resume'
+import { chooseFile, haveAvatar } from '../../controllers/resume'
 
 import './index.css'
 
 class ResumeGenerator extends Component {
+    componentDidMount() {
+        // 如果用户之前上传过图像, 就显示之前的头像
+        haveAvatar()
+    }
     render() {
         return (
             <div className="resume">
